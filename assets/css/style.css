@@ -9,7 +9,7 @@ div{
 
 #button_placeholder {
  width: 100%;
-background-color: aqua;
+/* background-color: aqua; */
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -25,6 +25,49 @@ div.forcast{
     flex-direction: row;
 }
 
-div.forcast * {
-    margin-right: 15px;
+.day {
+    color: aliceblue;
+    margin-right: 2%;
+    /* background-color: rgb(52, 52, 183);*/
+   color: black;
+     background-color: whitesmoke;
+    /* min-width:  200px; */
+    width: 30%;
+    height: 200px
+
 }
+
+.day:hover{
+    width: 45%;
+    /* background-color:rgb(64, 64, 220); */
+}
+
+@media screen and (max-width: 800px) {
+    div.forcast{
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+    }
+
+    .day {
+        display: flex;
+        flex-direction: column;
+        color: aliceblue;
+        margin-right: 2%;
+        /* background-color: rgb(52, 52, 183);*/
+       color: black;
+         background-color: whitesmoke;
+        /* min-width:  200px; */
+        width: 50%;
+        height: 200px;
+        align-self: center;
+    }
+    .day *{
+        align-self: center;
+    }
+    .day:hover{
+        width: 80%;
+        /* background-color:rgb(64, 64, 220); */
+    }
+  }

@@ -7,14 +7,14 @@ const form=$('form');
 
 
 
-  async function  runSearch(event){
+  async function  runSearch(event,Uinput){
     event.preventDefault()
     // $('#search_box').val('New York')
     const input=$('#search_box').val()
     // console.log(button_placeholder)
     $('#search_box').val('')
     const searchResult= await getWeather(input)
-    console.log(searchResult)
+    // console.log(searchResult)
     const Name=searchResult.weather.name
     const Temperture=searchResult.weather.main.temp
     const TempertureMax=searchResult.weather.main.temp_max
@@ -31,6 +31,8 @@ const form=$('form');
     }
     
     PostWeather(WeatherOBJ)
+    PostForcast(searchResult.forcast)
+
    // return WeatherOBJ
   }
 
@@ -77,25 +79,63 @@ const form=$('form');
     console.log(OBJ)
     saveCity(OBJ.Name)
   }
+  function PostForcast(arr){
+    let placeholder=document.querySelector('.forcast')
+    let  icon=`./assets/images/icons8-sunny.gif`;
+    arr.forEach(element => {
+      console.log(element)
+
+      if(element.weather[0].main=='Clouds'){
+        icon=`./assets/images/icons8-cloudy.gif`;
+      }
+      else if(element.weather[0].main=='Sunny'){
+        icon=`./assets/images/icons8-sunny.gif`;
+      } else if(element.weather[0].main=='Rain'){
+        icon=`./assets/images/icons8-rain.gif`;
+      }
+
+
+      placeholder.insertAdjacentHTML('beforeend',`
+      <div class="day rounded border Small shadow"> 
+        <h5>${element.dt_txt.substr(0,10)}</h5>
+        <h5>Temp: ${element.main.temp} F</h5>
+        <h5>Wind: ${element.wind.speed}</h5>
+        <h5>Humidity:${element.main.humidity}</h5>
+        <img src=${icon}>
+      </div>
+      `)
+      icon=`./assets/images/icons8-sunny.gif`;
+    });
+  }
 
 function saveCity(cityName){
   let newList=JSON.parse( localStorage.getItem('Cities'))||[]
-  newList.push(cityName)
-  newList=JSON.stringify(newList) 
-  localStorage.setItem('Cities',newList)
-  RenderSingleCityBtn(cityName)
+  if(!newList.includes(cityName)){
+    newList.push(cityName)
+    newList=JSON.stringify(newList) 
+    localStorage.setItem('Cities',newList)
+    RenderSingleCityBtn(cityName)
+  }
+ 
 }
 
 function RenderSingleCityBtn(cityName){
   let placeholder=document.getElementById('button_placeholder')
   placeholder.insertAdjacentHTML('beforeend',`
-  <button class="savedWeather">${cityName}</button>
+  <button class="savedWeather  btn btn-primary">${cityName}</button>
   `)
 
 }
 
+function RenderAllCityBtns(){
+  let data=JSON.parse( localStorage.getItem('Cities'))||[]
+  data.forEach(element => {
+    RenderSingleCityBtn(element)
+  });
+}
   form.on('submit',runSearch)
   $('#button_placeholder').on('click','.savedWeather',function(){
     $('#search_box').val(this.innerText)
     runSearch(event)
   })
+  RenderAllCityBtns()

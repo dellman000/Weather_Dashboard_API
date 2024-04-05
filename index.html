@@ -18,30 +18,31 @@
                 <div>
                     <h1> Search for a city:</h1>
                     <form action="">
-                        <input id="search_box" style="width: 100%;" type="text" required>
-                        <button style="width: 100%;" > Search</button>
+                        <input id="search_box" class="form-control mr-sm-2" style="width: 100%;" type="text" required>
+                        <button class="btn btn-outline-success my-2 my-sm-0" style="width: 100%;" > Search</button>
                     </form>
 
                 </div>
 
                 <div id="button_placeholder">
-                    <button class="savedWeather">London</button>
+                    <!-- <button class="savedWeather btn btn-primary rounded-left">London</button> -->
 
                 </div>
             </section>
             <section style="height: 100%;" class="col-8" id="TitleHead">
-                <h1 class="row" id="City" > City name</h1>
-                <h3 class="row" id="temp"> Temperture: </h3>
-                <h3 class="row" id="wind"> Wind Speed: </h3>
-                <h3 class="row" id="humidity"> Humidity: </h3>
-                <section>
-                    <h2>5-Day Forcast</h2>
+                <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                    <h1 class="row" id="City" > City name</h1>
+                    <h3 class="row" id="temp"> Temperture: </h3>
+                    <h3 class="row" id="wind"> Wind Speed: </h3>
+                    <h3 class="row" id="humidity"> Humidity: </h3>
+                    <!-- <img src="./assets/images/icons8-cloudy.gif"> -->
+                </div>
+                
+                <section class="shadow-lg p-3 mb-5 bg-white rounded">
+                    <h2 style="margin-bottom: 5%;">5-Day Forcast</h2>
                     <div class="forcast">
-                        <h1>day 1</h1>
-                        <h1>day 2</h1>
-                        <h1>day 3</h1>
-                        <h1>day 4</h1>
-                        <h1>day 5</h1>
+
+         
                     </div>
                 </section>
             </section>
