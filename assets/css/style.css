@@ -4,5 +4,27 @@ body, main{
    
 }
 div{
-    height: 100%;
+    /* height: 100%; */
+}
+
+#button_placeholder {
+ width: 100%;
+background-color: aqua;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+#button_placeholder .savedWeather{
+    width: 100%;
+    margin-top: 15px;
+}
+
+div.forcast{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+}
+
+div.forcast * {
+    margin-right: 15px;
 }

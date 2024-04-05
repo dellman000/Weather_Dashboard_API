@@ -3,12 +3,16 @@ const options ='weather?q=atlanta&appid='
 //const options ='weather?q=atlanta&appid=1f965d36035e44dfd7ce52a501d2500e'
 const apikey=`1f965d36035e44dfd7ce52a501d2500e`
 const form=$('form');
+// let button_placeholder=$('#button_placeholder')
 
 
 
   async function  runSearch(event){
     event.preventDefault()
+    // $('#search_box').val('New York')
     const input=$('#search_box').val()
+    // console.log(button_placeholder)
+    $('#search_box').val('')
     const searchResult= await getWeather(input)
     console.log(searchResult)
     const Name=searchResult.weather.name
@@ -71,10 +75,27 @@ const form=$('form');
     Wind.innerText="Wind Speed: "+OBJ.Windspeed+" MPH"
     humidity.innerText="Humidity: "+OBJ.humidity+" %"
     console.log(OBJ)
-
+    saveCity(OBJ.Name)
   }
 
+function saveCity(cityName){
+  let newList=JSON.parse( localStorage.getItem('Cities'))||[]
+  newList.push(cityName)
+  newList=JSON.stringify(newList) 
+  localStorage.setItem('Cities',newList)
+  RenderSingleCityBtn(cityName)
+}
 
+function RenderSingleCityBtn(cityName){
+  let placeholder=document.getElementById('button_placeholder')
+  placeholder.insertAdjacentHTML('beforeend',`
+  <button class="savedWeather">${cityName}</button>
+  `)
+
+}
 
   form.on('submit',runSearch)
-  
+  $('#button_placeholder').on('click','.savedWeather',function(){
+    $('#search_box').val(this.innerText)
+    runSearch(event)
+  })

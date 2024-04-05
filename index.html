@@ -14,19 +14,38 @@
     <main>
 
         <div class="row">
-            <section class="col-4">
-                <h1> Search for a city:</h1>
-                <form action="">
-                    <input id="search_box" style="width: 100%;" type="text">
-                    <button style="width: 100%;" > Search</button>
-                </form>
+            <section class="col-4" >
+                <div>
+                    <h1> Search for a city:</h1>
+                    <form action="">
+                        <input id="search_box" style="width: 100%;" type="text" required>
+                        <button style="width: 100%;" > Search</button>
+                    </form>
+
+                </div>
+
+                <div id="button_placeholder">
+                    <button class="savedWeather">London</button>
+
+                </div>
             </section>
             <section style="height: 100%;" class="col-8" id="TitleHead">
                 <h1 class="row" id="City" > City name</h1>
                 <h3 class="row" id="temp"> Temperture: </h3>
                 <h3 class="row" id="wind"> Wind Speed: </h3>
                 <h3 class="row" id="humidity"> Humidity: </h3>
+                <section>
+                    <h2>5-Day Forcast</h2>
+                    <div class="forcast">
+                        <h1>day 1</h1>
+                        <h1>day 2</h1>
+                        <h1>day 3</h1>
+                        <h1>day 4</h1>
+                        <h1>day 5</h1>
+                    </div>
+                </section>
             </section>
+          
         </div>
         
 
