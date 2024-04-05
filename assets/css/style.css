@@ -30,10 +30,10 @@ div.forcast{
     margin-right: 2%;
     /* background-color: rgb(52, 52, 183);*/
    color: black;
-     background-color: whitesmoke;
+     background-color: white;
     /* min-width:  200px; */
     width: 30%;
-    height: 200px
+    height: 225px
 
 }
 
@@ -58,10 +58,10 @@ div.forcast{
         margin-right: 2%;
         /* background-color: rgb(52, 52, 183);*/
        color: black;
-         background-color: whitesmoke;
+         background-color: white;
         /* min-width:  200px; */
         width: 50%;
-        height: 200px;
+       
         align-self: center;
     }
     .day *{
