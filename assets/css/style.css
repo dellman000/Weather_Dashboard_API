@@ -53,7 +53,8 @@ div.forcast{
     .day {
         display: flex;
         flex-direction: column;
-        color: aliceblue;
+        /* color: aliceblue; */
+        color: rgba(250, 235, 215, 0.834);
         margin-right: 2%;
         /* background-color: rgb(52, 52, 183);*/
        color: black;

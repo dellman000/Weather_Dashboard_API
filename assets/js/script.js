@@ -82,6 +82,7 @@ const form=$('form');
   function PostForcast(arr){
     let placeholder=document.querySelector('.forcast')
     let  icon=`./assets/images/icons8-sunny.gif`;
+    RemoveForcast()
     arr.forEach(element => {
       console.log(element)
 
@@ -104,8 +105,18 @@ const form=$('form');
         <img src=${icon}>
       </div>
       `)
-      icon=`./assets/images/icons8-sunny.gif`;
+      icon=`./assets/images/icons8-sunny.gif`;    
     });
+
+
+  }
+  function RemoveForcast(){
+    let placeholder=document.querySelector('.forcast')
+    let child = placeholder.lastElementChild;
+    while (child) {
+      placeholder.removeChild(child);
+        child = placeholder.lastElementChild;
+    }
   }
 
 function saveCity(cityName){
